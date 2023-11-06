@@ -1,0 +1,43 @@
+{
+  "name": "Student Admission Portal",
+  "short_name": "Student Admission Portal",
+  "icons": [
+    {
+      "src": "img/favicons/maskable_icon.png",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "maskable"
+    },
+    {
+      "src": "img/favicons/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "img/favicons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "img/favicons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "img/favicons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/favicons/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "id": "/",
+  "start_url": "/",
+  "orientation": "portrait",
+  "theme_color": "#F3F4F6",
+  "background_color": "#F3F4F6",
+  "display": "standalone"
+}

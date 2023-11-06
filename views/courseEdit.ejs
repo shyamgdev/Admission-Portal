@@ -1,0 +1,100 @@
+<%- include("./components/header.ejs") %>
+
+  <main>
+    <!-- MAIN CONTAINER -->
+    <div class="py-10">
+      <h1 class="my-4 text-center text-blue-700 font-bold text-3xl">Course edit</h1>
+      <div class="">
+        <form class="flex flex-col items-start text-start w-full px-4 space-y-2 overflow-y-scroll"
+          id="course_update_form" action="/course_update/<%= course._id %>" method="post">
+          <!-- USERNAME -->
+          <div class="w-full">
+            <label>Username</label>
+            <br />
+            <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" type="text" name="name" minlength="3"
+              value="<%= course.name %>" />
+          </div>
+          <!-- EMAIL -->
+          <div class="w-full">
+            <label>Email</label>
+            <br />
+            <input type="email" name="email" value="<%= course.email %>" />
+          </div>
+          <!-- MOBILE NO. -->
+          <div class="w-full">
+            <label>Mobile No.</label>
+            <br />
+            <input type="number" name="phone" value="<%= course.phone %>" />
+          </div>
+          <!-- D.O.B -->
+          <div class="w-full">
+            <label>D.O.B.</label>
+            <br />
+            <input type="date" class="bg-transparent" name="date" value="<%= course.dob %>" />
+          </div>
+          <!-- GENDER -->
+          <div class="mb-2">
+            <label>Gender</label>
+            <br />
+            <div class="flex flex-row space-x-2">
+              <label class="flex flex-row items-center justify-center space-x-2 cursor-pointer">
+                <input type="radio" name="gender" value="male" />
+                <span>Male</span>
+              </label>
+              <label class="flex flex-row items-center justify-center space-x-2 cursor-pointer">
+                <input type="radio" name="gender" value="female" />
+                <span>Female</span>
+              </label>
+            </div>
+          </div>
+          <!-- CITY -->
+          <div class="w-full">
+            <label>City</label>
+            <br />
+            <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" type="text" name="city" minlength="3"
+              value="<%= course.city %>" />
+          </div>
+          <!-- ADDRESS -->
+          <div class="w-full">
+            <label>Address</label>
+            <br />
+            <textarea class="" name="address" value="<%= course.address %>"></textarea>
+          </div>
+          <!-- SELECT COLLAGE -->
+          <div class="w-full">
+            <label>Select Collage</label>
+            <br />
+            <select class="w-full" name="collage">
+              <option>
+                <%= course.collage %>
+              </option>
+              <option>MITS</option>
+              <option>RJIT</option>
+              <option>ITM</option>
+              <option>NITM</option>
+              <option>VITM</option>
+            </select>
+          </div>
+          <!-- SELECT COURSE -->
+          <div class="w-full mb-2">
+            <label>Select Course</label>
+            <br />
+            <select name="course" class="w-full">
+              <option>
+                <%= course.course %>
+              </option>
+              <option>,dfngjd</option>
+            </select>
+          </div>
+          <!-- FORM SUBMIT BUTTTON -->
+          <div class="w-full bg-blue-700 mt-8 py-2 text-xl text-white text-center rounded-lg cursor-pointer">
+            <button type="submit" form="course_update_form">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <%- include("./components/footer.ejs") %>

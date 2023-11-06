@@ -1,0 +1,303 @@
+<%- include("./components/header.ejs") %>
+
+<!-- PROFILE PAGE -->
+<section class="page" id="proile-page">
+  <!-- PROFILE CONTAINER -->
+  <div class="flex flex-col justify-start space-y-6 w-full max-w-md min-h-screen m-auto p-4 bg-white">
+    <!-- TOP -->
+    <div class="flex flex-row items-center justify-between">
+      <!-- TOP LEFT -->
+      <!-- BACK BUTTON -->
+      <div onclick="history.back()" class="cursor-pointer">
+        <!-- BACK ICON -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </div>
+      <!-- TOP MIDDLE -->
+      <div class="font-bold">Profile</div>
+      <!-- TOP RIGHT -->
+      <!-- LIGHT/DARK MODE -->
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+        </svg>
+      </button>
+    </div>
+    <!-- MIDDLE -->
+    <div class="flex flex-col items-center justify-center space-y-2">
+      <!-- STUDENT PROFILE IMAGE -->
+      <div class="relative w-32 rounded-full overflow-hidde border-blue-700 border-2">
+        <img class="rounded-full aspect-square" src="<%= user.image.url %>" alt="Profile" />
+        <!-- EDIT PROFILE BUTTON -->
+        <button class="absolute bottom-0 right-0 p-2 rounded-full text-white font-bold bg-blue-700 z-10" onclick="toggleEditProilePage()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+          </svg>
+        </button>
+      </div>
+      <!-- STUDENT NAME -->
+      <h1 class="font-medium"><%= user.name %></h1>
+      <!-- STUDENT EMAIL -->
+      <h2> <%= user.email %> </h2>
+      <!-- BUTTONS -->
+      <div class="flex flex-row gap-2">
+        <!-- UPDATE PROFILE BUTTON -->
+        <button class="px-12 py-2 rounded-full text-white bg-blue-700" onclick="toggleEditProilePage()">
+          Edit Profile
+        </button>
+        <!-- CHANGE PASSWORD BUTTON -->
+        <button class="px-5 py-2 rounded-full text-white bg-blue-700" onclick="toggleCPPage()">
+          Change Password
+        </button>
+      </div>
+    </div>
+    <!-- BOTTOM -->
+    <div class="flex flex-col px-4 space-y-2 font-medium">
+      <!-- BOTTOM ITEM -->
+      <div class="flex flex-row items-center justify-between px-4 cursor-pointer">
+        <!-- BOTTOM ITEM LEFT -->
+        <div class="flex flex-row items-center justify-between">
+          <!-- BOTTOM ITEM ICON -->
+          <div class="p-2 bg-blue-200 text-blue-700 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <span class="pl-2">Settings</span>
+        </div>
+        <!-- BOTTOM ITEM RIGHT -->
+        <div class="h-fit p-1 rounded-full font-bold text-blue-700 bg-blue-200">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+      </div>
+      <!-- BOTTOM ITEM -->
+      <a href="/logout">
+        <div class="flex flex-row items-center justify-between px-4 cursor-pointer">
+          <!-- BOTTOM ITEM LEFT -->
+          <div class="flex flex-row items-center justify-between text-red-500">
+            <!-- BOTTOM ITEM ICON -->
+            <div class="p-2 bg-blue-200 text-blue-700 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+              </svg>
+            </div>
+            <span class="pl-2">Logout</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDIT PROFILE PAGE -->
+<section class="page hidden" id="edit-proile-page">
+  <!-- EDIT PROFILE CONTAINER -->
+  <div class="flex flex-col justify-start space-y-6 w-full max-w-md min-h-screen m-auto p-4 bg-white">
+    <!-- TOP -->
+    <div class="flex flex-row items-center justify-between">
+      <!-- TOP LEFT -->
+      <!-- BACK BUTTON -->
+      <button onclick="toggleEditProilePage()">
+        <!-- BACK ICON -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <!-- TOP MIDDLE -->
+      <div class="font-bold">Edit Profile</div>
+      <!-- TOP RIGHT -->
+      <div class="invisible"></div>
+    </div>
+    <!-- MIDDLE -->
+    <div >
+      <!-- MIDDLE TOP -->
+      <form class="flex flex-col items-center justify-center space-y-2" action="/update_profile" method="post" id="edit-profile-form" enctype="multipart/form-data">
+      <!-- STUDENT PROFILE IMAGE -->
+      <div class="relative w-32 h-32 rounded-full overflow-hidde border-blue-700 border-2">
+        <img id="editProfile-image" class="rounded-full" src="<%= user.image.url %>" alt="<%= user.name %>" />
+        <!-- EDIT PROFILE BUTTON -->
+        <button class="absolute bottom-0 right-0 p-2 rounded-full text-white font-bold bg-blue-700 z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+        </button>
+        <input type="file" title="Change Profile" accept="image/*" id="editProfile-imageInput" class="absolute top-0 w-full h-full opacity-0 z-50 cursor-pointer" name="profile"/>
+      </div>
+      <!-- MIDDLE MIDDLE -->
+      <!-- STUDENT DETAILS -->
+      <div class="w-full mt-5 px-8 space-y-2">
+          <!-- STUDENT NAME -->
+          <fieldset class="border border-solid border-[#ced4da] rounded-full w-full pl-4">
+            <legend class="text-xs text-blue-700 font-medium ml-2">
+              Full Name
+            </legend>
+            <div class="flex flex-row justify-start text-center py-2">
+              <!-- STUDENT NAME ICON -->
+              <div class="h-fit text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+              </div>
+              <input type="text" value="<%= user.name %>" name="name" class="w-full pl-2 rounded-full outline-none"  />
+            </div>
+          </fieldset>
+          <!-- STUDENT EMAIL -->
+          <fieldset class="border border-solid border-[#ced4da] rounded-full w-full pl-4">
+            <legend class="text-xs text-blue-700 font-medium ml-2">
+              Email Address
+            </legend>
+            <div class="flex flex-row justify-start text-center py-2">
+              <!-- STUDENT EMAIL ICON -->
+              <div class="h-fit text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </div>
+              <input type="email" value="<%= user.email %>" name="email" class="pl-2 rounded-full outline-none" readonly />
+            </div>
+          </fieldset>
+          <p class="text-red-500 pt-2 pl-4 text-xs">Note: You Cannot Change Your Email.</p>
+          <!-- UPDATE PROFILE BUTTON -->
+          <div>
+            <button type="submit" class="w-full rounded-full text-white p-2 mt-10 bg-blue-700 active:bg-blue-500">
+              Update Profile
+            </button>
+          </div>
+      </div>
+      </form>
+
+      <!-- MIDDLE BOTTOM -->
+      <div class="text-xs text-center">
+        <!-- STUDENT JOINING DATE -->
+        Joined <span class="font-medium">20th July 2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANGE PASSWORD PAGE -->
+<section class="page hidden" id="change-password-page">
+  <!-- EDIT PROFILE CONTAINER -->
+  <div class="flex flex-col justify-start space-y-6 w-full max-w-md min-h-screen m-auto p-4 bg-white">
+    <!-- TOP -->
+    <div class="flex flex-row items-center justify-between">
+      <!-- TOP LEFT -->
+      <!-- BACK BUTTON -->
+      <button onclick="toggleCPPage()">
+        <!-- BACK ICON -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <!-- TOP MIDDLE -->
+      <div class="font-bold">Change Password</div>
+      <!-- TOP RIGHT -->
+      <div class="invisible"></div>
+    </div>
+    <!-- MIDDLE -->
+    <div class="flex flex-col items-center justify-center space-y-2">
+      <!-- MIDDLE TOP -->
+      <!-- STUDENT PROFILE IMAGE -->
+      <div class="relative w-32 h-32 rounded-full overflow-hidde border-blue-700 border-2">
+        <img id="editProfile-image" class="rounded-full" src="<%= user.image.url %>" alt="<%= user.name %>" />
+      </div>
+      <!-- MIDDLE MIDDLE -->
+      <!-- STUDENT DETAILS -->
+      <div class="w-full mt-5 px-8 space-y-2">
+        <form action="/update_password" method="post">
+          <!-- STUDENT OLD PASSWORD -->
+          <fieldset class="border border-solid border-[#ced4da] rounded-full w-full pl-4">
+            <legend class="text-xs text-blue-700 font-medium ml-2">
+              Old Password
+            </legend>
+            <div class="flex flex-row justify-start text-center py-2">
+              <!-- STUDENT PASSWORD ICON -->
+              <div class="h-fit text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                </svg>
+              </div>
+              <input type="password" name="oldPassword" placeholder="Enter Your Old Password" class="pl-2 rounded-full outline-none" required />
+            </div>
+          </fieldset>
+          <!-- STUDENT NEW PASSWORD -->
+          <fieldset class="border border-solid border-[#ced4da] rounded-full w-full pl-4">
+            <legend class="text-xs text-blue-700 font-medium ml-2">
+              New Password
+            </legend>
+            <div class="flex flex-row justify-start text-center py-2">
+              <!-- STUDENT PASSWORD ICON -->
+              <div class="h-fit text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                </svg>
+              </div>
+              <input type="password" name="newPassword" placeholder="Enter Your New Password" class="pl-2 rounded-full outline-none" minlength="8" required />
+            </div>
+          </fieldset>
+          <!-- STUDENT CONFIRM PASSWORD -->
+          <fieldset class="border border-solid border-[#ced4da] rounded-full w-full pl-4">
+            <legend class="text-xs text-blue-700 font-medium ml-2">
+              Confirm Password
+            </legend>
+            <div class="flex flex-row justify-start text-center py-2">
+              <!-- STUDENT PASSWORD ICON -->
+              <div class="h-fit text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                </svg>
+              </div>
+              <input type="password" name="confirmPassword" placeholder="Confirm Password" class="pl-2 rounded-full outline-none" minlength="8" required />
+            </div>
+          </fieldset>
+          <!-- EDIT PROFILE BUTTON -->
+          <div>
+            <button type="submit" class="w-full rounded-full text-white p-2 mt-10 bg-blue-700 active:bg-blue-500">
+              Update Profile
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- MIDDLE BOTTOM -->
+      <div class="text-xs">
+        <!-- STUDENT JOINING DATE -->
+        Joined <span class="font-medium">20th July 2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // TOGGLE EDIT PROFILE PAGE
+  const toggleEditProilePage = () => {
+    const proilePage = document.querySelector("#proile-page");
+    const editProilePage = document.querySelector("#edit-proile-page");
+    proilePage.classList.toggle("hidden");
+    editProilePage.classList.toggle("hidden");
+  };
+
+  const toggleCPPage = () => {
+    const proilePage = document.querySelector("#proile-page");
+    const changePasswordPage = document.querySelector("#change-password-page");
+    proilePage.classList.toggle("hidden");
+    changePasswordPage.classList.toggle("hidden");
+  };
+
+  // EDIT PROILE PAGE SCRIPT
+  const profile = document.querySelector("#editProfile-image");
+  const updatedProfile = document.querySelector("#editProfile-imageInput");
+
+  updatedProfile.onchange = () => {
+    // console.log(updatedProfile.files);
+    profile.src = URL.createObjectURL(updatedProfile.files[0]);
+  };
+</script>

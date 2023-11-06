@@ -1,0 +1,18 @@
+<% if (Object.keys(msg).length> 0) { %>
+  <div class="notifier <%= msg.error ? " bg-red-500" : "bg-green-500" %>">
+    <p>
+      <%= msg.error || msg.success %>
+    </p>
+  </div>
+  <script>
+    // JavaScript to hide the notifier after a delay of 2 seconds)
+    var notifier = Array.from(document.getElementsByClassName('notifier'));
+    notifier.forEach(notifier => {
+      if (notifier) {
+        setTimeout(() => {
+          notifier.remove()
+        }, 2000);
+      }
+    });
+  </script>
+  <% } %>

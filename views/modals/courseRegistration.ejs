@@ -1,0 +1,131 @@
+<!-- COURSE REGISTRATION MODAL -->
+<div class="relative bg-white z-50 hidden" id="course-registration-modal">
+  <!-- OUTER MODAL FOR CLOSE THE MODAL -->
+  <div class="fixed min-w-full min-h-screen top-0 backdrop-blur-sm z-40" onclick="closeCourseRegistrationModal()">
+  </div>
+  <!-- INNER MODAL -->
+  <div class="fixed top-0 bottom-0 left-0 right-0 m-auto max-w-sm h-full sm:py-8 text-center rounded-lg z-50">
+    <!-- CLOSE MODAL BUTTON -->
+    <button class="absolute right-0 p-1 text-red-700 bg-red-200 rounded-lg" onclick="closeCourseRegistrationModal()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <!-- INNER MODAL CONTAINER -->
+    <div
+      class="flex flex-col items-center justify-start bg-white p-4 space-y-2 w-full h-full rounded-lg shadow-xl hover:shadow-2xl">
+      <h1 class="font-bold text-blue-700" title>
+        BCA Registration Form
+      </h1>
+      <p class="text-sm text-blue-500">
+        In Case any query, Kindly Contact: 1234567890
+      </p>
+      <!-- REGISTRATION FORM -->
+      <form class="flex flex-col items-start text-start w-full max-w-sm px-4 space-y-2 overflow-y-scroll"
+        id="course_registration_form" action="/course_insert" method="post">
+        <!-- USERNAME -->
+        <div class="w-full">
+          <label>Username</label>
+          <br />
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" type="text" name="name" minlength="3" required/>
+        </div>
+        <!-- EMAIL -->
+        <div class="w-full">
+          <label>Email</label>
+          <br />
+          <input type="email" name="email" required/>
+        </div>
+        <!-- MOBILE NO. -->
+        <div class="w-full">
+          <label>Mobile No.</label>
+          <br />
+          <input type="number" name="phone" required/>
+        </div>
+        <!-- D.O.B -->
+        <div class="w-full">
+          <label>D.O.B.</label>
+          <br />
+          <input type="date" class="bg-transparent" name="dob" required/>
+        </div>
+        <!-- GENDER -->
+        <div class="mb-2">
+          <label>Gender</label>
+          <br />
+          <div class="flex flex-row space-x-2">
+            <label class="flex flex-row items-center justify-center space-x-2 cursor-pointer">
+              <input type="radio" name="gender" value="male" required/>
+              <span>Male</span>
+            </label>
+            <label class="flex flex-row items-center justify-center space-x-2 cursor-pointer">
+              <input type="radio" name="gender" value="female" required/>
+              <span>Female</span>
+            </label>
+          </div>
+        </div>
+        <!-- CITY -->
+        <div class="w-full">
+          <label>City</label>
+          <br />
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" type="text" name="city" minlength="3" required/>
+        </div>
+        <!-- ADDRESS -->
+        <div class="w-full">
+          <label>Address</label>
+          <br />
+          <textarea name="address"></textarea>
+        </div>
+        <!-- SELECT COLLAGE -->
+        <div class="w-full">
+          <label>Select Collage</label>
+          <br />
+          <select class="w-full bg-transparent" name="collage">
+            <option>Select</option>
+            <option>MITS</option>
+            <option>RJIT</option>
+            <option>ITM</option>
+            <option>NITM</option>
+            <option>VITM</option>
+          </select>
+        </div>
+        <!-- SELECT COURSE -->
+        <div class="w-full mb-2">
+          <label>Select Course</label>
+          <br />
+          <!-- <select
+              class="w-full p-2 border-[1px] border-[#ced4da] rounded-lg bg-transparent"
+            >
+              <option>BCA</option>
+            </select> -->
+          <input type="text" readonly course class="bg-blue-200" name="course" required/>
+        </div>
+      </form>
+      <!-- FORM SUBMIT BUTTTON -->
+      <div class="w-full bg-blue-700 mt-8 py-2 text-xl text-white rounded-lg cursor-pointer">
+        <button type="submit" form="course_registration_form">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // OPEN COURSE REGISTRATION MODAL
+  const openCourseRegistrationModal = (course) => {
+    document.querySelector("body").style.overflowY = "hidden";
+    const elem = document.querySelector("#course-registration-modal");
+    const titleElem = document.querySelector("#course-registration-modal [title]");
+    const courseElem = document.querySelector("#course-registration-modal [course]");
+    elem.classList.remove("hidden");
+    titleElem.innerText = `${course} Registration Form`;
+    courseElem.value = course;
+  };
+
+  // CLOSE COURSE REGISTRATION MODAL
+  const closeCourseRegistrationModal = () => {
+    document.querySelector("body").style.overflowY = "scroll";
+    const elem = document.querySelector("#course-registration-modal");
+    elem.classList.add("hidden");
+  };
+</script>

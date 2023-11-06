@@ -1,0 +1,9 @@
+@media (pointer: fine){
+  .pointer-fine\:bg-white\/60:hover{
+   background-color: rgb(255 255 255 / 0.6);
+ }
+}
+
+.overflow-y-scroll::-webkit-scrollbar {
+  display: none;
+}

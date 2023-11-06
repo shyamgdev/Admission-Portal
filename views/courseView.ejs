@@ -1,0 +1,62 @@
+<%- include("./components/header.ejs") %>
+
+  <main>
+    <!-- MAIN CONTAINER -->
+    <div class="py-10">
+      <h1 class="my-4 text-center text-blue-700 font-bold text-3xl">Course View</h1>
+      <div class="border overflow-x-scroll">
+        <table class="w-full border-collapse table-auto text-sm bg-white">
+          <thead class="border-b font-medium">
+            <tr>
+              <th scope="col" class="px-6 py-4">Id</th>
+              <th scope="col" class="px-6 py-4">Name</th>
+              <th scope="col" class="px-6 py-4">Email</th>
+              <th scope="col" class="px-6 py-4">Phone</th>
+              <th scope="col" class="px-6 py-4">Gender</th>
+              <th scope="col" class="px-6 py-4">DOB</th>
+              <th scope="col" class="px-6 py-4">City</th>
+              <th scope="col" class="px-6 py-4">Address</th>
+              <th scope="col" class="px-6 py-4">Collage</th>
+              <th scope="col" class="px-6 py-4">Course</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="text-center whitespace-nowrap px-6 py-4 font-medium">
+                <%= course._id %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.name %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.email %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.phone %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.gender %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.dob %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.city %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.address %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.collage %>
+              </td>
+              <td class="text-center whitespace-nowrap px-6 py-4">
+                <%= course.course %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <%- include("./components/footer.ejs") %>

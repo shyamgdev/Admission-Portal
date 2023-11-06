@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <meta http-equiv="refresh" content="1"> -->
+  <title>Registration</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/output.css" />
+  <link rel="stylesheet" href="css/customStyle.css" />
+</head>
+
+<body>
+  <!-- REGISTRATION PAGE -->
+  <section class="page">
+    <!-- NOTIFIER -->
+    <%- include('./components/notifier.ejs') %>
+    <!-- REGISTRATION CONTAINER -->
+    <div class="flex flex-row max-w-3xl p-2 rounded-xl bg-white hover:drop-shadow-2xl">
+      <!-- LEFT -->
+      <div class="w-1/2 md:block hidden">
+        <img src="./img/login.webp" alt="login-form" class="rounded-xl" />
+      </div>
+      <!-- RIGHT -->
+      <div class="md:w-1/2 w-full text-center mx-8">
+        <!-- TOP -->
+        <div class="w-48 my-2 mx-auto">
+          <img src="./img/logo.png" alt="logo" />
+        </div>
+        <h1 class="text-blue-700 text-center text-3xl font-medium">
+          Register Here
+        </h1>
+        <br />
+        <!-- MIDDLE -->
+        <form class="flex flex-col my-2 space-y-2" action="user_insert" method="post" enctype="multipart/form-data">
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" name="n" type="text" placeholder="Name"
+            minlength="3" required />
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" name="e" type="email" placeholder="Email"
+            required />
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" name="p" minlength="8" type="password"
+            placeholder="Password" required password />
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg peer/password" name="cp" minlength="8"
+            type="password" placeholder="Confirm Password" required password />
+          <div class="flex flex-row space-x-2">
+            <label>
+              <input type="checkbox" class="w-fit checked:group-t" id="toggle-password-visibility"
+                onclick="togglePasswordVisibility()" />
+              <span>Show Password</span>
+            </label>
+          </div>
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" type="file" name="image" />
+          <button type="submit" class="bg-blue-700 hover:bg-blue-800 mt-4 py-2 text-xl text-white rounded-lg">
+            Register
+          </button>
+        </form>
+        <!-- BOTTOM -->
+        <div class="text-center">
+          <span>HAVE AN ACCOUNT?</span>
+          <a class="text-blue-700 visited:text-purple-600 underline" href="/login">LOGIN NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // TOGGLE PASSWORD VISIBILITY
+    const togglePasswordVisibility = () => {
+      const elems = document.querySelectorAll("input[password]");
+      elems.forEach((elem) => {
+        if (elem.type === "password") {
+          elem.type = "text";
+        } else {
+          elem.type = "password";
+        }
+      });
+    };
+  </script>
+</body>
+
+</html>

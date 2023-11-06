@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply w-full h-full;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+    scroll-snap-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  main {
+    @apply min-h-screen;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    @apply w-full p-2 border border-[#ced4da] rounded-lg invalid:[&:not(:placeholder-shown)]:border-red-500 outline-blue-700;
+  }
+
+  fieldset input {
+    @apply p-0 border-none
+  }
+
+  img {
+    @apply w-full h-full cursor-pointer object-cover object-top;
+  }
+}
+
+@layer components {
+  .page {
+    @apply flex w-full h-full m-auto items-center justify-center bg-primary;
+  }
+
+  .card {
+    @apply w-full max-w-xs h-96 bg-white rounded-xl overflow-hidden pb-4 shadow-xl hover:shadow-2xl cursor-pointer text-center;
+  }
+
+  .notifier {
+    @apply absolute top-0 left-0 right-0 m-auto w-fit px-20 py-4 rounded-sm z-50 transition-all delay-500;
+  }
+}

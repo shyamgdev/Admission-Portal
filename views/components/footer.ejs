@@ -1,0 +1,67 @@
+<!-- FOOTER -->
+<footer class="bg-blue-950 text-white w-full p-4 text-center">
+  <p>
+    All Rights Reserved & &copy; Copyright:
+    <a class="text-blue-400 visited:text-purple-600 underline" href="https://www.linkedin.com/in/shyamgdev/"
+      target="_blank">Prashant Gupta</a>
+  </p>
+</footer>
+
+<!-- COURSE REGISTRATION MODAL -->
+
+</div>
+</section>
+
+<script>
+  // MAKING HEADER FIXED WHEN SCROLLING WINDOW
+  const header = document.querySelector("header");
+
+  // ONCLICK TOGGLE MOBILE MENU BUTTON
+  const toggleMobileMenuBtn = (e) => {
+    const toggleMobileMenu = document.querySelector("#toggle-mobile-menu");
+    const humburgerOpen = document.querySelector(".humburger .open");
+    const humburgerClose = document.querySelector(".humburger .close");
+    toggleMobileMenu.classList.toggle("hidden");
+    humburgerOpen.classList.toggle("hidden");
+    humburgerClose.classList.toggle("hidden");
+  };
+
+  // CAROUSEL
+  const slider = document.querySelector("#slider");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlideIndex = 1;
+
+  const showSlide = () => {
+    if (currentSlideIndex > slides.length) {
+      currentSlideIndex = 1;
+    } else if (currentSlideIndex < 1) {
+      currentSlideIndex = slides.length;
+    }
+    for (let i = 0; i < slides.length; i++) {
+      if (currentSlideIndex === i + 1) {
+        slides[i].classList.remove("hidden");
+      } else {
+        slides[i].classList.add("hidden");
+      }
+    }
+    currentSlideIndex++;
+  };
+
+  const prevSlide = () => {
+    currentSlideIndex -= 2;
+    showSlide();
+  };
+
+  const nextSlide = () => {
+    showSlide();
+  };
+
+  setInterval(() => {
+    showSlide();
+  }, 2000);
+
+  
+</script>
+</body>
+
+</html>

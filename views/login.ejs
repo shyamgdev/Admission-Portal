@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="css/output.css" />
+  <link rel="stylesheet" href="css/customStyle.css" />
+</head>
+
+<body>
+  <!-- LOGIN PAGE -->
+  <section class="page">
+    <!-- NOTIFIER -->
+    <%- include('./components/notifier.ejs') %>
+    <!-- LOGIN CONTAINER -->
+    <div class="flex flex-row max-w-3xl p-2 rounded-xl bg-white hover:drop-shadow-2xl">
+      <!-- LEFT -->
+      <div class="w-1/2 md:block hidden">
+        <img src="img/login.webp" alt="login-form" class="rounded-xl" />
+      </div>
+      <!-- RIGHT -->
+      <div class="md:w-1/2 w-full text-center mx-8">
+        <!-- TOP -->
+        <div class="w-48 my-4 mx-auto">
+          <img src="img/logo.png" alt="logo" />
+        </div>
+        <h1 class="text-blue-700 text-center text-3xl font-medium">Login</h1>
+        <br />
+        <!-- MIDDLE -->
+        <form class="flex flex-col my-8 gap-4" action="/verify_login" method="post">
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" type="email" name="email" placeholder="Email" required />
+          <input class="p-2 border-[1px] border-[#ced4da] rounded-lg" type="password" name="password" placeholder="Password"
+            minlength="8" required />
+          <button type="submit" class="bg-blue-700 mt-8 py-2 text-xl text-white rounded-lg">
+            Log In
+          </button>
+        </form>
+        <!-- BOTTOM -->
+        <div class="text-center">
+          <span>DON'T HAVE AN ACCOUNT?</span>
+          <a class="text-blue-600 visited:text-purple-600 underline" href="/registration">REGISTER NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

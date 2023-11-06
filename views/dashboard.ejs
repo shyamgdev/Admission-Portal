@@ -1,0 +1,215 @@
+<%- include('./components/header.ejs') %>
+
+<!-- DASHBOARD PAGE -->
+<section class="flex-grow w-full bg-primary">
+  <!-- DASHBOARD CONTAINER -->
+  <div class="w-full">
+    <!-- CAROUSEL -->
+    <div class="w-full h-full relative">
+      <!-- CAROUSEL PREVIOUS BUTTON -->
+      <button class="h-full px-4 absolute left-0 top-0 bottom-0 active:bg-white/60 pointer-fine:bg-white/60" onclick="prevSlide()" title="Previous Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <!-- CAROUSEL NEXT BUTTON -->
+      <button class="h-full px-4 absolute right-0 top-0 bottom-0 active:bg-white/60 pointer-fine:bg-white/60" onclick="nextSlide()" title="Next Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+      <!-- CAROUSEL CONTAINER -->
+      <div class="slider w-full h-full flex flex-row">
+        <!-- FIRST SLIDE -->
+        <img class="slide" src="./img/hero/01.jpg" alt="" />
+        <!-- SECOND SLIDE -->
+        <img class="slide hidden" src="./img/hero/02.jpg" alt="" />
+        <!-- THIRD SLIDE -->
+        <img class="slide hidden" src="./img/hero/03.jpg" alt="" />
+        <!-- FOURTH SLIDE -->
+        <img class="slide hidden" src="./img/hero/04.jpg" alt="" />
+      </div>
+    </div>
+    <!-- MAIN -->
+    <main class="flex-grow px-4 pb-8">
+      <!-- COURSES -->
+      <div class="w-full pt-12 space-y-8" id="courses">
+        <!-- COURSES TITLE & DESCRIPTION -->
+        <div class="flex flex-col items-center justify-center text-center gap-4">
+          <h1 class="font-bold text-3xl text-blue-700">Courses</h1>
+          <p class="font-semibold md:text-xl line-clamp-4">
+            Course Registration means the official recording of a student's name
+            to study a course or courses.
+          </p>
+        </div>
+        <!-- COURSES CONTAINER -->
+        <div class="w-full h-full flex flex-row items-center justify-center flex-wrap gap-4">
+          <div class="card">
+            <!-- CARD TOP -->
+            <div class="h-1/2 overflow-hidden">
+              <img src="/img/courses/B-Teck.jpg" alt="B.Tech" />
+            </div>
+            <!-- CARD BOTTOM -->
+            <div class="w-full h-1/2 flex flex-col items-center justify-between gap-4">
+              <h1 class="text-xl font-semibold pt-2 line-clamp-2">
+                Bachelor of Technology (B.Tech)
+              </h1>
+              <p class="line-clamp-2">
+                B.Tech is a professional undergraduate engineering degree.
+              </p>
+              <% if(b){ %>
+              <a class="bg-blue-700 hover:bg-blue-800 px-4 py-2 text-xl text-white rounded-lg" href="/courseDisplay">Display</a>
+              <% } else { %>
+              <button class="bg-blue-700 hover:bg-blue-800 px-4 py-2 text-xl text-white rounded-lg" onclick="openCourseRegistrationModal('B.Tech')">
+                Register
+              </button>
+              <% } %>
+            </div>
+          </div>
+          <div class="card">
+            <!-- CARD TOP -->
+            <div class="h-1/2 overflow-hidden">
+              <img src="/img/courses/BCA.jpg" alt="BCA" />
+            </div>
+            <!-- CARD BOTTOM -->
+            <div class="w-full h-1/2 flex flex-col items-center justify-between gap-4">
+              <h1 class="text-xl font-semibold pt-2 line-clamp-2">
+                Bachelor of Computer Application (BCA)
+              </h1>
+              <p class="line-clamp-2">
+                BCA is a three-year Bachelor's Degree in Computer Application.
+              </p>
+              <% if(bca){ %>
+              <a class="bg-blue-700 hover:bg-blue-800 px-4 py-2 text-xl text-white rounded-lg" href="/courseDisplay">Display</a>
+              <% } else { %>
+              <button class="bg-blue-700 hover:bg-blue-800 px-4 py-2 text-xl text-white rounded-lg" onclick="openCourseRegistrationModal('BCA')">
+                Register
+              </button>
+              <% } %>
+            </div>
+          </div>
+          <div class="card">
+            <!-- CARD TOP -->
+            <div class="h-1/2 overflow-hidden">
+              <img src="/img/courses/MCA.jpg" alt="MCA" />
+            </div>
+            <!-- CARD BOTTOM -->
+            <div class="w-full h-1/2 flex flex-col items-center justify-between gap-4">
+              <h1 class="text-xl font-semibold pt-2 line-clamp-2">
+                Master of Computer Application (MCA)
+              </h1>
+              <p class="line-clamp-2">
+                MCA is a professional post-graduation degree in computer
+                science.
+              </p>
+              <% if(mca){ %>
+              <a class="bg-blue-700 hover:bg-blue-800 px-4 py-2 text-xl text-white rounded-lg" href="/courseDisplay">Display</a>
+              <% } else { %>
+              <button class="bg-blue-700 hover:bg-blue-800 px-4 py-2 text-xl text-white rounded-lg" onclick="openCourseRegistrationModal('MCA')">
+                Register
+              </button>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ABOUT US -->
+      <div class="w-full pt-12" id="about">
+        <h1 class="font-bold text-3xl text-blue-700 text-center pb-4">
+          About Us
+        </h1>
+        <div class="w-full px-4 flex flex-col lg:flex-row items-center justify-center space-x-4 space-y-4">
+          <!-- LEFT -->
+          <div class="md:w-full space-y-4">
+            <h3 class="font-medium text-xl">
+              <span class="text-blue-700">15+</span>
+              <span>Years of Experience</span>
+            </h3>
+            <p>
+              The Vikrant Group of Institutions have embarked on a mission with
+              zeal to imbibe a culture of providing quality education to the
+              learners, thereby leading the learners to the pinnacle of success.
+              To achieve this, abinito we have created a State of Art
+              Infrastructure and indepth resources of through diehard
+              professionals in our team. Our all out endeavour is to groom young
+              future leaders to be complete value driven human beings and
+              competent professionals with a deep passion for our country.
+              <br />
+              <br />
+              The biggest strength of our Institutes is the renowned faculty
+              members having distinguished academic achievements in different
+              areas of technology, management and other related basic
+              disciplines. The endeavour is to have a progressive outlook and
+              introduce innovative teaching-learning process.
+            </p>
+          </div>
+          <!-- RIGHT -->
+          <div class="m-auto">
+            <iframe class="w-full sm:w-[560px] sm:h-[315px]" src="https://www.youtube.com/embed/HpS7XsWZqdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <!-- CONTACT US -->
+      <div class="w-full pt-12" id="contact">
+        <h1 class="font-bold text-3xl text-blue-700 text-center pb-4">
+          Contact Us
+        </h1>
+        <div class="w-full flex flex-col lg:flex-row items-start justify-around px-4 space-y-4">
+          <!-- CONTACT DETAILS -->
+          <div class="space-y-4">
+            <h3 class="font-medium text-xl">Contact Details</h3>
+            <!-- TOP -->
+            <div>
+              <h4 class="font-medium text-xl text-blue-500">Principal</h4>
+              <p>
+                Name : Prof. Anand Singh Bisen
+                <br />
+                Contact No. : +917773004155 | Toll Free : 1800-270-5155
+                <br />
+                Mail ID :
+                <a target="_blank" href="mailto:principal@vitm.edu.in" class="hover:text-blue-500">principal@vitm.edu.in</a>
+              </p>
+            </div>
+            <!-- BOTTOM -->
+            <br />
+            <div>
+              <h4 class="font-medium text-xl text-blue-500">
+                Chief Admission Co-ordinator
+              </h4>
+              <p>
+                Name : Mr.Sanjeev Chauhan
+                <br />
+                Contact No. : 0751 2920555, +91 9425114946, +919229222902
+                <br />
+                Fax No. : +91 7514066476, 4053850 | Toll Free : 1800-270-5155
+                <br />
+                Mail ID :
+                <a target="_blank" href="mailto:sanjeev@vitm.edu.in" class="hover:text-blue-500">sanjeev@vitm.edu.in</a>
+                |
+                <a target="_blank" href="mailto:admissions@vitm.edu.in" class="hover:text-blue-500">admissions@vitm.edu.in</a>
+              </p>
+            </div>
+          </div>
+          <!-- GET IN TOUCH -->
+          <div class="max-w-lg space-y-4">
+            <h3 class="font-medium text-xl">Get in Touch</h3>
+            <!--CONTACT FORM -->
+            <form action="#" method="post" class="space-y-4">
+              <input type="text" placeholder="Full Name" />
+              <input type="text" placeholder="Email" />
+              <textarea placeholder="Type Your Message"></textarea>
+              <button type="submit" class="w-fit rounded-full text-white px-12 py-2 mx-auto text-center bg-blue-700 active:bg-blue-500">
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- COURSE REGISTRATION MODAL -->
+      <%- include("./modals/courseRegistration.ejs") %>
+    </main>
+  </div>
+</section>
+
+<%- include('./components/footer.ejs') %>
